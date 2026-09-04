@@ -58,6 +58,28 @@ local function createMessage(player, message)
     background.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
     background.Parent = gui
 
+    -- X para fechar
+    local closeButton = Instance.new("TextButton")
+    closeButton.AnchorPoint = Vector2.new(1, 0)
+    closeButton.Position = UDim2.new(1, -15, 0, 15)
+    closeButton.Size = UDim2.fromOffset(45, 45)
+    closeButton.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
+    closeButton.BackgroundTransparency = 0.15
+    closeButton.Text = "X"
+    closeButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+    closeButton.TextSize = 22
+    closeButton.Font = Enum.Font.GothamBold
+    closeButton.AutoButtonColor = true
+    closeButton.Parent = background
+
+    local corner = Instance.new("UICorner")
+    corner.CornerRadius = UDim.new(0, 8)
+    corner.Parent = closeButton
+
+    closeButton.MouseButton1Click:Connect(function()
+        gui:Destroy()
+    end)
+
     local label = Instance.new("TextLabel")
     label.AnchorPoint = Vector2.new(0.5, 0.5)
     label.Position = UDim2.fromScale(0.5, 0.5)
